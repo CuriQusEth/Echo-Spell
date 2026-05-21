@@ -27,16 +27,46 @@
       "description": "Main agent control API"
     }
   ],
-  "capabilities": [
-    "echo-magic",
-    "spell-casting",
-    "arcane-automation",
-    "multi-spell-orchestration",
-    "magic-system-management",
-    "ritual-automation",
-    "mcp-command-execution"
+  "skills": [
+    {
+      "id": "echo-magic",
+      "name": "Echo Magic",
+      "description": "Cast and manipulate magical echoes in the arena"
+    },
+    {
+      "id": "spell-casting",
+      "name": "Spell Casting",
+      "description": "Execute powerful rhythmic spell commands"
+    },
+    {
+      "id": "arcane-automation",
+      "name": "Arcane Automation",
+      "description": "Automate spell combos and rhythmic resonance"
+    },
+    {
+      "id": "multi-spell-orchestration",
+      "name": "Multi-Spell Orchestration",
+      "description": "Combine multi-elemental magic streams"
+    },
+    {
+      "id": "magic-system-management",
+      "name": "Magic System Management",
+      "description": "Manage mana and cosmic flows on-chain"
+    },
+    {
+      "id": "ritual-automation",
+      "name": "Ritual Automation",
+      "description": "Assist with high-level ERC-8021 and ERC-8004 rituals"
+    },
+    {
+      "id": "mcp-command-execution",
+      "name": "MCP Command Execution",
+      "description": "Execute active Model Context Protocol orchestration commands"
+    }
   ],
-  "supportedChains": ["eip155:8453"],
+  "supportedChains": [
+    "eip155:8453"
+  ],
   "active": true,
   "status": "online"
 }
