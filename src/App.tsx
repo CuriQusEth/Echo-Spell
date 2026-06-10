@@ -12,6 +12,8 @@ import { config } from './config/wagmi';
 const queryClient = new QueryClient();
 
 // A simple Connect Wallet button overlay
+import { GMButton } from './components/GMButton';
+
 const ConnectWalletOverlay = () => {
     const { address, isConnected } = useAccount();
     const { connectors, connect } = useConnect();
@@ -26,7 +28,8 @@ const ConnectWalletOverlay = () => {
     };
 
     return (
-        <div className="absolute top-4 right-4 z-50">
+        <div className="absolute top-4 right-4 z-50 flex items-center gap-3">
+            <GMButton />
             {isConnected ? (
                 <button 
                     onClick={() => disconnect()}

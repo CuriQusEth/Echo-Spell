@@ -3,6 +3,7 @@ import { useGame } from '../../store/gameStore';
 import { motion } from 'framer-motion';
 import { useAccount, useSignMessage } from 'wagmi';
 import { submitToTrustlessAgent, generateAgentTaskSignature } from '../../lib/erc8004';
+import { GMButton } from '../GMButton';
 
 export const GameOver: React.FC = () => {
     const { score, highestCombo, setGameState } = useGame();
@@ -72,31 +73,35 @@ export const GameOver: React.FC = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col items-center gap-4 w-full max-w-sm">
                 {!submitted ? (
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={handleRecordPerformance}
                         disabled={isSubmitting}
-                        className="px-8 py-4 font-bold text-white uppercase transition rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 shadow-[0_0_15px_rgba(139,92,246,0.5)] disabled:opacity-50"
+                        className="w-full px-8 py-4 font-bold text-white uppercase transition rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 shadow-[0_0_15px_rgba(139,92,246,0.5)] disabled:opacity-50"
                     >
                         {isSubmitting ? 'Casting to Base...' : 'Record Performance On-Chain'}
                     </motion.button>
                 ) : (
-                    <div className="p-4 font-bold text-green-400 border border-green-500 rounded-xl bg-green-500/10">
+                    <div className="w-full p-4 font-bold text-green-400 border border-green-500 rounded-xl bg-green-500/10">
                         Legend Immortalized on Base Mainnet!
                     </div>
                 )}
 
-                <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setGameState('MENU')}
-                    className="px-8 py-4 font-bold tracking-wider text-white uppercase transition border rounded-xl border-slate-700 hover:bg-slate-800"
-                >
-                    Return to Sanctum
-                </motion.button>
+                <div className="flex items-center gap-4 w-full">
+                    <GMButton />
+                    
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setGameState('MENU')}
+                        className="flex-1 px-8 py-4 font-bold tracking-wider text-white uppercase transition border rounded-xl border-slate-700 hover:bg-slate-800"
+                    >
+                        Return to Sanctum
+                    </motion.button>
+                </div>
             </div>
         </motion.div>
     );
