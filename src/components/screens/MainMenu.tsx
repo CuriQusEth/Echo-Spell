@@ -21,16 +21,15 @@ export const MainMenu: React.FC = () => {
 
     const handleSayGM = () => {
         if (!isConnected || !address) {
-            alert('Please connect your wallet first (Mock integration).');
+            alert('Please connect your wallet first.');
             return;
         }
         
-        // This is where ERC-8021 logic is used for transaction attribution
-        // We simulate a basic transaction sending to oneself with data payload
+        // Send transaction to Say GM contract on Base Mainnet with ERC-8021 attribution
         const data = formatAttributionTransactionData('say_gm');
         
         sendTransaction({
-            to: address,
+            to: '0xcD0dd3716C5561De47a24949335dF8a8CD8F71a3',
             data,
             value: 0n,
         });
@@ -95,7 +94,7 @@ export const MainMenu: React.FC = () => {
                     </motion.div>
                     
                     {isSuccess && (
-                         <div className="mt-4 text-sm text-green-400 animate-pulse">GM Sent to Base Mainnet!</div>
+                         <div className="mt-4 text-sm font-semibold text-emerald-400 animate-pulse">GM Sent to Base Denim Mainnet (200ms canonical block)!</div>
                     )}
                 </div>
             </div>

@@ -1,4 +1,16 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+type VercelRequest = {
+  method?: string;
+  body?: any;
+  headers?: Record<string, string | string[] | undefined>;
+  [key: string]: any;
+};
+
+type VercelResponse = {
+  setHeader: (name: string, value: string) => any;
+  status: (code: number) => { json: (data: any) => any; end: () => any };
+  json: (data: any) => any;
+  end: () => any;
+};
 
 const TOOLS = [
   {

@@ -1,6 +1,9 @@
 import React from 'react';
 import { useAccount, useSendTransaction } from 'wagmi';
 import { Sun } from 'lucide-react';
+import { formatAttributionTransactionData } from '../lib/erc8021';
+
+export const GM_CONTRACT_ADDRESS = '0xcD0dd3716C5561De47a24949335dF8a8CD8F71a3';
 
 export const GMButton = () => {
     const { isConnected } = useAccount();
@@ -8,9 +11,9 @@ export const GMButton = () => {
 
     const handleGM = () => {
         sendTransaction({
-            to: '0xcD0dd3716C5561De47a24949335dF8a8CD8F71a3',
+            to: GM_CONTRACT_ADDRESS,
             value: 0n,
-            // You can optionally pass data here if required by the contract
+            data: formatAttributionTransactionData('say_gm'),
         });
     };
 

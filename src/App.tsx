@@ -28,21 +28,26 @@ const ConnectWalletOverlay = () => {
     };
 
     return (
-        <div className="absolute top-4 right-4 z-50 flex items-center gap-3">
+        <div className="absolute top-4 right-4 z-50 flex items-center gap-2.5">
+            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono font-medium rounded-lg bg-blue-950/70 border border-blue-500/40 text-blue-200 backdrop-blur-md shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
+                <span className="font-semibold text-blue-100">Base Denim</span>
+                <span className="text-[10px] text-blue-400">200ms</span>
+            </div>
             <GMButton />
             {isConnected ? (
                 <button 
                     onClick={() => disconnect()}
-                    className="px-4 py-2 text-xs font-mono font-bold text-cyan-200 border border-cyan-800 bg-cyan-950/50 rounded-lg backdrop-blur-sm"
+                    className="px-3.5 py-2 text-xs font-mono font-bold text-cyan-200 border border-cyan-800 bg-cyan-950/60 rounded-lg backdrop-blur-sm hover:bg-cyan-900/40 transition-colors"
                 >
                     {address?.slice(0, 6)}...{address?.slice(-4)}
                 </button>
             ) : (
                 <button 
                     onClick={handleConnect}
-                    className="px-4 py-2 text-xs font-mono font-bold text-amber-200 border border-amber-800 bg-amber-950/50 rounded-lg backdrop-blur-sm animate-pulse"
+                    className="px-3.5 py-2 text-xs font-mono font-bold text-amber-200 border border-amber-800 bg-amber-950/60 rounded-lg backdrop-blur-sm animate-pulse hover:bg-amber-900/40 transition-colors"
                 >
-                    Connect Wallet (Base)
+                    Connect (Base Denim)
                 </button>
             )}
         </div>

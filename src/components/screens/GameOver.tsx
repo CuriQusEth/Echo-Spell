@@ -7,13 +7,13 @@ import { GMButton } from '../GMButton';
 
 export const GameOver: React.FC = () => {
     const { score, highestCombo, setGameState } = useGame();
-    const { isConnected } = useAccount();
+    const { address, isConnected } = useAccount();
     const { signMessageAsync } = useSignMessage();
     const [isSubmitting, setIsSubmitting] = React.useState(false);
     const [submitted, setSubmitted] = React.useState(false);
 
     const handleRecordPerformance = async () => {
-        if (!isConnected) {
+        if (!isConnected || !address) {
             alert('Please connect your wallet.');
             return;
         }
@@ -25,7 +25,7 @@ export const GameOver: React.FC = () => {
             const signPayload = `Echo Spells Verification\nScore: ${score}\nMax Combo: ${highestCombo}\nTimestamp: ${Date.now()}`;
             
             // Request signature
-            const signature = await signMessageAsync({ message: signPayload });
+            const signature = await signMessageAsync({ account: address, message: signPayload });
             
             // Mock ERC-8004 submission
             const task = generateAgentTaskSignature(score);
@@ -82,11 +82,11 @@ export const GameOver: React.FC = () => {
                         disabled={isSubmitting}
                         className="w-full px-8 py-4 font-bold text-white uppercase transition rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 shadow-[0_0_15px_rgba(139,92,246,0.5)] disabled:opacity-50"
                     >
-                        {isSubmitting ? 'Casting to Base...' : 'Record Performance On-Chain'}
+                        {isSubmitting ? 'Casting to Base Denim...' : 'Record Performance On-Chain'}
                     </motion.button>
                 ) : (
-                    <div className="w-full p-4 font-bold text-green-400 border border-green-500 rounded-xl bg-green-500/10">
-                        Legend Immortalized on Base Mainnet!
+                    <div className="w-full p-4 font-bold text-emerald-400 border border-emerald-500 rounded-xl bg-emerald-500/10">
+                        Legend Immortalized on Base Mainnet (Denim)!
                     </div>
                 )}
 

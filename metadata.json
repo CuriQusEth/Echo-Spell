@@ -1,6 +1,6 @@
 {
   "name": "Echo Spells",
-  "description": "A rhythmic, atmospheric spell-casting game on Base Mainnet.",
+  "description": "A rhythmic, atmospheric spell-casting game on Base Mainnet (Denim 200ms blocks).",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
